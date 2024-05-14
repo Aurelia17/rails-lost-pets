@@ -11,12 +11,12 @@ require 'faker'
 
 Pet.destroy_all
 
-20.times do
+30.times do
   pet = Pet.new(
     name: Faker::Creature::Dog.name,
     address: Faker::Address.full_address,
     species: %w[dog cat turtle snake rabbit dragon].sample,
-    found_on: Faker::Date.between(from: 1.years.ago, to: Date.today)
+    found_on: Faker::Date.between(from: 50.days.ago, to: Date.today)
   )
   pet.save!
 end
