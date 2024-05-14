@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+Pet.destroy_all
+
+20.times do
+  pet = Pet.new(
+    name: Faker::Creature::Dog.name,
+    address: Faker::Address.full_address,
+    species: %w[dog cat turtle snake rabbit dragon].sample,
+    found_on: Faker::Date.between(from: 1.years.ago, to: Date.today)
+  )
+  pet.save!
+end
+puts "20 animals were created"
