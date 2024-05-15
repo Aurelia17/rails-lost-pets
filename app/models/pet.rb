@@ -1,6 +1,7 @@
 class Pet < ApplicationRecord
+  SPECIES = %w[dog cat turtle dragon snake rabbit]
   validates :name, presence: true
-  validates :species, inclusion: { in: %w(dog cat turtle dragon snake rabbit) }
+  validates :species, inclusion: { in: SPECIES }
 
   def found_days_ago
     days_ago = (Date.today - found_on).to_i
